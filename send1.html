@@ -151,36 +151,19 @@ body{
     justify-content: center;
     align-items: center;
 }
-
-.loader > img {
-    width: 100px;
+video{
+  width: 15px;
+  height: 15px;
 }
 
-.loader.hidden {
-    animation: fadeOut 3s;
-    animation-fill-mode: forwards;
-}
-
-@keyframes fadeOut {
-    100% {
-        opacity: 0;
-        visibility: hidden;
-    }
-}
-
-.thumb {
-    height: 100px;
-    border: 1px solid black;
-    margin: 10px;
-}
 .processing{
   color: green;
 }
   </style>
 </head>
 <body>
-  <div class="loader">
-    <p class="processing">Processing...</p>
+<div id="loader" class="loader">
+    <p class="processing">Processing.. <video loop autoplay muted src="icons/processing gif.MP4"></video></p>
 </div>
   
 <section class="done-section" id="done2">
@@ -217,11 +200,10 @@ body{
     document.getElementById('total-transaction').innerHTML = '$' + localStorage.getItem('totalCount');
 
 
-    window.addEventListener("load", function () {
-    const loader = document.querySelector(".loader");
-    loader.className += " hidden"; // class "loader hidden"
-
-});
+function hide(){
+  document.getElementById('loader').style.visibility = "hidden";
+ }
+ setTimeout('hide()',10000);
 </script>
 </div>
 
